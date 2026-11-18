@@ -1,0 +1,21 @@
+# Safe GitOps connectivity test: isolated Namespace + ConfigMap.
+# No production workloads or container images are deployed.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd-connectivity-test
+  labels:
+    app.kubernetes.io/part-of: argocd-connectivity-test
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-connectivity-test
+  namespace: argocd-connectivity-test
+  labels:
+    app.kubernetes.io/part-of: argocd-connectivity-test
+data:
+  source: GitHub
+  destination: AKS
+  purpose: Verify Argo CD repository read and Kubernetes sync
+  version: "1"
