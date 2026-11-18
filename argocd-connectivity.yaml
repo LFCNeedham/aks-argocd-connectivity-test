@@ -18,4 +18,4 @@ data:
   source: GitHub
   destination: AKS
   purpose: Verify Argo CD repository read and Kubernetes sync
-  version: "1"
+  version: "2"
